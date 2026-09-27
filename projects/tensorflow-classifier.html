@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TensorFlow Image Classifier - Abdillah Van Orden</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="../index.html">
+    <span class="brand__dot"></span>
+    Abdillah Van Orden
+  </a>
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">TensorFlow Image Classifier</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="sidenav" aria-label="Project sections">
+    <div class="sidenav__title">On this page</div>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#screenshots">Screenshots</a></li>
+      <li><a href="#links">Links</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+
+    <div class="project-header">
+      <h1>TensorFlow Image Classifier</h1>
+      <div class="project-status" style="margin: 18px 0 12px; padding: 10px 12px; border: 1px solid rgba(220, 53, 69, 0.8); background: rgba(220, 53, 69, 0.12); color: #f4b1b7; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;">This page is a work in progress. Come back later.</div>
+      <div class="project-header__meta">
+        <!-- TODO: confirm/adjust tags -->
+        <span class="tag">Python</span>
+        <span class="tag">TensorFlow</span>
+        <span class="tag">CNN</span>
+        <span class="scan-row__type">Machine learning</span>
+      </div>
+      <p class="project-header__desc">
+        An image classifier that distinguishes between two object
+        classes, built and trained with TensorFlow.
+      </p>
+    </div>
+
+    <section class="project-section" id="overview">
+      <h2>Overview</h2>
+      <p>
+        <!-- TODO: replace [object A] / [object B] and adjust to your actual model/dataset -->
+        The model takes an input image and classifies it as either
+        [object A] or [object B]. It's a convolutional neural network
+        trained on a labeled dataset of images for the two classes, with
+        a standard train/validation split used to tune the model and
+        check it's generalizing rather than memorizing the training set.
+      </p>
+    </section>
+
+    <section class="project-section" id="screenshots">
+      <h2>Screenshots</h2>
+      <!--
+        Replace each <span class="screenshot__label"> with an <img> tag, e.g.:
+        <img src="../assets/img/tensorflow-classifier/shot-1.png" alt="...">
+      -->
+      <div class="screenshot-grid">
+        <div>
+          <div class="screenshot">
+            <span class="screenshot__label">screenshot: predictions.png</span>
+          </div>
+          <p class="screenshot__caption">Sample predictions on test images.</p>
+        </div>
+        <div>
+          <div class="screenshot">
+            <span class="screenshot__label">screenshot: training-curve.png</span>
+          </div>
+          <p class="screenshot__caption">Training/validation accuracy over epochs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section" id="links">
+      <h2>Links</h2>
+      <p>
+        <!-- TODO: real repo link -->
+        <a href="#" target="_blank" rel="noopener">Source on GitHub</a>
+      </p>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  © <span id="year"></span> Abdillah Van Orden - built with HTML/CSS, hosted on GitHub Pages
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

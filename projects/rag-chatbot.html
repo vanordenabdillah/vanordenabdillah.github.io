@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAG Chatbot - Abdillah Van Orden</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="../index.html">
+    <span class="brand__dot"></span>
+    Abdillah Van Orden
+  </a>
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">RAG Chatbot</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="sidenav" aria-label="Project sections">
+    <div class="sidenav__title">On this page</div>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#screenshots">Screenshots</a></li>
+      <li><a href="#links">Links</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+
+    <div class="project-header">
+      <h1>RAG Chatbot</h1>
+      <div class="project-status" style="margin: 18px 0 12px; padding: 10px 12px; border: 1px solid rgba(220, 53, 69, 0.8); background: rgba(220, 53, 69, 0.12); color: #f4b1b7; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;">This page is a work in progress. Come back later.</div>
+      <div class="project-header__meta">
+        <!-- TODO: confirm/adjust tags -->
+        <span class="tag">Python</span>
+        <span class="tag">RAG</span>
+        <span class="tag">Team project</span>
+        <span class="scan-row__type">Web app</span>
+      </div>
+      <p class="project-header__desc">
+        A retrieval-augmented generation chatbot built with a small
+        team, deployed as a web app on PythonAnywhere.
+      </p>
+    </div>
+
+    <section class="project-section" id="overview">
+      <h2>Overview</h2>
+      <p>
+        <!-- TODO: adjust to your actual setup - vector store, LLM provider, what domain/docs it answers over -->
+        The chatbot answers questions grounded in a specific set of
+        documents rather than relying only on what the underlying
+        language model already knows. Incoming questions are embedded
+        and matched against a vector store of chunked source documents;
+        the most relevant chunks are retrieved and passed to the
+        language model as context alongside the question, so answers
+        are grounded in and can cite the actual source material
+        instead of the model's own possibly-outdated or hallucinated
+        knowledge.
+      </p>
+    </section>
+
+    <section class="project-section" id="screenshots">
+      <h2>Screenshots</h2>
+      <!--
+        Replace each <span class="screenshot__label"> with an <img> tag, e.g.:
+        <img src="../assets/img/rag-chatbot/shot-1.png" alt="...">
+      -->
+      <div class="screenshot-grid">
+        <div>
+          <div class="screenshot">
+            <span class="screenshot__label">screenshot: chat-ui.png</span>
+          </div>
+          <p class="screenshot__caption">Chat interface with a sample question and answer.</p>
+        </div>
+        <div>
+          <div class="screenshot">
+            <span class="screenshot__label">screenshot: retrieval-debug.png</span>
+          </div>
+          <p class="screenshot__caption">Retrieved source chunks backing a given answer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section" id="links">
+      <h2>Links</h2>
+      <p>
+        <!-- TODO: real repo link -->
+        <a href="#" target="_blank" rel="noopener">Source on GitHub</a>
+      </p>
+      <p style="color: var(--text-faint); font-size: 13.5px;">
+        <!--
+          TODO: PythonAnywhere free-tier apps go to sleep after inactivity
+          and need the owner to log in to "wake" them - so if the demo
+          isn't reliably up, it's worth saying so rather than linking a
+          dead demo. Either delete this note and add a working demo
+          link above, or keep a short caveat like the one below.
+        -->
+        A live demo may have been hosted on PythonAnywhere, and it may not be live anymore.
+      </p>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  © <span id="year"></span> Abdillah Van Orden - built with HTML/CSS, hosted on GitHub Pages
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

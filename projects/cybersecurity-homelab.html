@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity Homelab - Abdillah Van Orden</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="../index.html">
+    <span class="brand__dot"></span>
+    Abdillah Van Orden
+  </a>
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">Cybersecurity Homelab</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="sidenav" aria-label="Project sections">
+    <div class="sidenav__title">On this page</div>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#lab-environment">Lab environment</a></li>
+      <li><a href="#pfsense">pfSense firewall</a></li>
+      <li><a href="#nessus">Vulnerability scanning</a></li>
+      <li><a href="#wazuh">Detection &amp; SIEM</a></li>
+      <li><a href="#links">Links</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+
+    <div class="project-header">
+      <h1>Cybersecurity Homelab</h1>
+      <div class="project-status" style="margin: 18px 0 12px; padding: 10px 12px; border: 1px solid rgba(220, 53, 69, 0.8); background: rgba(220, 53, 69, 0.12); color: #f4b1b7; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;">This page is a work in progress. Come back later.</div>
+      <div class="project-header__meta">
+        <!-- TODO: confirm/adjust tags -->
+        <span class="tag">pfSense</span>
+        <span class="tag">Nessus</span>
+        <span class="tag">Wazuh</span>
+        <span class="tag">Metasploitable</span>
+        <span class="scan-row__type">Cybersecurity / infrastructure</span>
+      </div>
+      <p class="project-header__desc">
+        A virtualized home lab used to practice offensive and defensive
+        security: a segmented network behind a pfSense firewall, with
+        Metasploitable VMs as intentionally vulnerable targets, scanned
+        with Nessus and monitored with Wazuh.
+      </p>
+    </div>
+
+    <section class="project-section" id="overview">
+      <h2>Overview</h2>
+      <p>
+        <!-- TODO: adjust to your actual hypervisor/network layout -->
+        The lab is a set of virtual machines networked together to
+        mimic a small, intentionally-vulnerable environment: a pfSense
+        box acting as the router/firewall at the network edge, one or
+        more Metasploitable VMs as deliberately exploitable targets, a
+        Nessus instance for vulnerability scanning, and Wazuh as a SIEM
+        for log collection and alerting. The goal was to get hands-on
+        experience with the full loop - scanning for vulnerabilities,
+        understanding what they mean, and then seeing the resulting
+        activity show up in detection tooling.
+      </p>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat__value"><!-- TODO --></div>
+          <div class="stat__label">VMS</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value"><!-- TODO: hypervisor --></div>
+          <div class="stat__label">HYPERVISOR</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value">pfSense / Nessus / Wazuh</div>
+          <div class="stat__label">TOOLS</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section" id="lab-environment">
+      <h2>Lab environment</h2>
+      <p>
+        The lab is designed to simulate a small segmented environment,
+        with pfSense sitting between the internal machines and the wider
+        network so traffic can be controlled and logged.
+      </p>
+      <div class="screenshot-grid">
+        <div>
+          <div class="screenshot">
+            <span class="screenshot__label">screenshot: network-diagram.png</span>
+          </div>
+          <p class="screenshot__caption">Network topology of the lab.</p>
+        </div>
+        <div>
+          <div class="screenshot">
+            <span class="screenshot__label">screenshot: vm-inventory.png</span>
+          </div>
+          <p class="screenshot__caption">Hypervisor view of the running VMs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section" id="pfsense">
+      <h2>pfSense firewall</h2>
+      <p>
+        <!-- TODO: describe your firewall/segmentation rules -->
+        pfSense handles routing and firewall rules for the lab,
+        segmenting the vulnerable targets from the rest of the network
+        and logging traffic that crosses between segments.
+      </p>
+      <div class="screenshot-grid">
+        <div>
+          <div class="screenshot">
+            <span class="screenshot__label">screenshot: pfsense-dashboard.png</span>
+          </div>
+          <p class="screenshot__caption">pfSense dashboard overview.</p>
+        </div>
+        <div>
+          <div class="screenshot">
+            <span class="screenshot__label">screenshot: firewall-rules.png</span>
+          </div>
+          <p class="screenshot__caption">Firewall rules segmenting the lab network.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section" id="nessus">
+      <h2>Vulnerability scanning (Nessus)</h2>
+      <p>
+        <!-- TODO: describe what scans you ran and notable findings -->
+        Nessus was run against the Metasploitable VMs to enumerate known
+        vulnerabilities - outdated services, weak configurations, and
+        so on - and produce prioritized findings by severity.
+      </p>
+      <div class="screenshot-grid">
+        <div>
+          <div class="screenshot">
+            <span class="screenshot__label">screenshot: nessus-scan-results.png</span>
+          </div>
+          <p class="screenshot__caption">Scan results against a Metasploitable target, by severity.</p>
+        </div>
+        <div>
+          <div class="screenshot">
+            <span class="screenshot__label">screenshot: nessus-finding-detail.png</span>
+          </div>
+          <p class="screenshot__caption">Detail view of a specific vulnerability finding.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section" id="wazuh">
+      <h2>Detection &amp; SIEM (Wazuh)</h2>
+      <p>
+        <!-- TODO: describe what you monitored and any alerts/rules you set up -->
+        Wazuh collects logs from across the lab and flags suspicious
+        activity - including activity generated by the Nessus scans
+        themselves and by exploitation attempts against the
+        Metasploitable VMs - giving visibility into what an attack looks
+        like from the defender's side.
+      </p>
+      <div class="screenshot-grid">
+        <div>
+          <div class="screenshot">
+            <span class="screenshot__label">screenshot: wazuh-dashboard.png</span>
+          </div>
+          <p class="screenshot__caption">Wazuh dashboard showing alerts generated during testing.</p>
+        </div>
+        <div>
+          <div class="screenshot">
+            <span class="screenshot__label">screenshot: wazuh-alert-detail.png</span>
+          </div>
+          <p class="screenshot__caption">Detail view of a triggered alert.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section" id="links">
+      <h2>Links</h2>
+      <p>
+        <!-- TODO: real repo link (configs, notes, etc.) -->
+        <a href="#" target="_blank" rel="noopener">Source / notes on GitHub</a>
+      </p>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  © <span id="year"></span> Abdillah Van Orden - built with HTML/CSS, hosted on GitHub Pages
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

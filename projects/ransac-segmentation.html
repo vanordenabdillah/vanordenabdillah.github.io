@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RANSAC Object Segmentation - Abdillah Van Orden</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="../index.html">
+    <span class="brand__dot"></span>
+    Abdillah Van Orden
+  </a>
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">RANSAC Object Segmentation</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="sidenav" aria-label="Project sections">
+    <div class="sidenav__title">On this page</div>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#screenshots">Screenshots</a></li>
+      <li><a href="#links">Links</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+
+    <div class="project-header">
+      <h1>RANSAC Object Segmentation</h1>
+      <div class="project-status" style="margin: 18px 0 12px; padding: 10px 12px; border: 1px solid rgba(220, 53, 69, 0.8); background: rgba(220, 53, 69, 0.12); color: #f4b1b7; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;">This page is a work in progress. Come back later.</div>
+      <div class="project-header__meta">
+        <!-- TODO: confirm/adjust tags -->
+        <span class="tag">Python</span>
+        <span class="tag">RANSAC</span>
+        <span class="tag">Point Clouds</span>
+        <span class="scan-row__type">Computer vision</span>
+      </div>
+      <p class="project-header__desc">
+        A segmentation pipeline that separates individual objects sitting
+        on a table from the surface they're resting on, using RANSAC to
+        fit and remove the dominant plane.
+      </p>
+    </div>
+
+    <section class="project-section" id="overview">
+      <h2>Overview</h2>
+      <p>
+        <!-- TODO: adjust to your actual pipeline/sensor setup -->
+        The pipeline takes in a scene of objects sitting on a table and
+        separates the objects from the tabletop itself. RANSAC (Random
+        Sample Consensus) is used to fit a plane model to the dominant
+        flat surface in the scene - repeatedly sampling small sets of
+        points, fitting a candidate plane, and scoring it by how many
+        points fall within a distance threshold (inliers) - which
+        makes it robust to noise and to the objects themselves, which
+        show up as outliers to the plane model.
+      </p>
+      <p>
+        Once the table plane is identified and removed, the remaining
+        points are clustered to isolate each object individually, giving
+        a clean per-object segmentation that downstream tasks (like
+        object recognition or grasp planning) can use.
+      </p>
+    </section>
+
+    <section class="project-section" id="screenshots">
+      <h2>Screenshots</h2>
+      <!--
+        Replace each <span class="screenshot__label"> with an <img> tag, e.g.:
+        <img src="../assets/img/ransac-segmentation/shot-1.png" alt="...">
+      -->
+      <div class="screenshot-grid">
+        <div>
+          <div class="screenshot">
+            <span class="screenshot__label">screenshot: raw-scene.png</span>
+          </div>
+          <p class="screenshot__caption">Raw input scene before segmentation.</p>
+        </div>
+        <div>
+          <div class="screenshot">
+            <span class="screenshot__label">screenshot: plane-fit.png</span>
+          </div>
+          <p class="screenshot__caption">Detected table plane (inliers) highlighted.</p>
+        </div>
+        <div>
+          <div class="screenshot">
+            <span class="screenshot__label">screenshot: segmented-objects.png</span>
+          </div>
+          <p class="screenshot__caption">Final per-object segmentation after plane removal + clustering.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section" id="links">
+      <h2>Links</h2>
+      <p>
+        <!-- TODO: real repo link -->
+        <a href="#" target="_blank" rel="noopener">Source on GitHub</a>
+      </p>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  © <span id="year"></span> Abdillah Van Orden - built with HTML/CSS, hosted on GitHub Pages
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
